@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact Us</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    .contact-wrapper {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 100px 40px;
+      font-family: Inter, sans-serif !important;
+      color: #1f2937;
+      font-size: 20px;
+    }
+
+    .contact-wrapper .contact-title {
+      font-size: 5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    .contact-wrapper .contact-subtitle {
+      font-size: 1.8rem;
+      color: #4b5563;
+      margin-bottom: 3rem;
+      line-height: 1.6;
+    }
+
+    .contact-wrapper .contact-grid {
+      display: grid;
+      grid-template-columns: 1.75fr 1fr;
+      gap: 100px;
+    }
+
+    .contact-wrapper .left-column {
+      font-size: 1.8rem;
+      line-height: 2;
+    }
+
+    .contact-wrapper .left-column p {
+      margin: 1.8rem 0;
+    }
+
+    .contact-wrapper .email-link {
+      color: #1d4ed8;
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .contact-wrapper .email-link:hover {
+      text-decoration: underline;
+    }
+
+    .contact-wrapper .support-row {
+      display: flex;
+      gap: 60px;
+      margin-top: 4rem;
+      flex-wrap: wrap;
+    }
+
+    .contact-wrapper .support-box {
+      flex: 1 1 45%;
+      min-width: 280px;
+    }
+
+    .contact-wrapper .support-heading {
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      color: #1a1a1a;
+    }
+
+    .contact-wrapper .support-text {
+      font-size: 1.15rem;
+      color: #4b5563;
+      line-height: 1.6;
+    }
+
+    .contact-wrapper .location-heading {
+      font-size: 1.75rem;
+      font-weight: 700;
+      margin-top: 2rem;
+      margin-bottom: 0.5rem;
+      color: #111827;
+    }
+
+    .contact-wrapper .location-address {
+      font-size: 1.3rem;
+      color: #374151;
+      line-height: 1.8;
+    }
+
+    @media (max-width: 768px) {
+      .contact-wrapper .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-wrapper .support-row {
+        flex-direction: column;
+        gap: 40px;
+      }
+
+      .contact-wrapper .contact-title {
+        font-size: 2.75rem;
+      }
+
+      .contact-wrapper .contact-subtitle {
+        font-size: 1.25rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="contact-wrapper">
+    <h1 class="contact-title">Contact Us</h1>
+    <p class="contact-subtitle">
+      Run into an issue or need a hand? We’re here to make your branded shopping experience seamless.
+    </p>
+
+    <div class="contact-grid">
+      <div class="left-column">
+        <p><strong>Hours:</strong> We’re available Monday through Friday, 9:00 AM – 5:00 PM EST. Reach out anytime and we’ll get back to you as soon as possible.</p>
+      <!--  <p><strong>Email us:</strong> <a href="mailto:hertzsupport@thumbprint.com" class="email-link">hertzsupport@thumbprint.com</a></p>
+        <p><strong>Call us:</strong> 317.703.3449</p> -->
+        <p><strong>Live Chat:</strong> Need quick help? Use the chat button in the bottom-right corner to start a conversation with our team.</p>
+
+        <!-- Support blocks side by side within left column 
+        <div class="support-row">
+          <div class="support-box">
+            <div class="support-heading">Client Success Support</div>
+            <p class="support-text">
+              Our dedicated team is here to ensure your brand programs run smoothly. Whether you're troubleshooting an issue or planning your next launch, we’re on standby to help.
+            </p>
+          </div>
+
+          <div class="support-box">
+            <div class="support-heading">Partnership Feedback</div>
+            <p class="support-text">
+              We grow through partnership. If you have feedback or ideas for how we can better serve your team, we’d love to hear them. Your input helps shape the future of our platform and services.
+            </p>
+          </div>
+        </div>-->
+      </div>
+
+      <div>
+        <div class="location-heading">HQ Office</div>
+        <div class="location-address">
+          15255 Endeavor Drive<br>
+          Noblesville, IN 46060
+        </div>
+
+        <div class="location-heading">Florida Office</div>
+        <div class="location-address">
+          2478 E Michigan St<br>
+          Orlando, FL 32806
+        </div>
+
+      </div>
+    </div>
+  </div>
+</body>
+</html>
