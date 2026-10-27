@@ -540,27 +540,6 @@
 
 
   
-  <!-- Product grid for every category except the two US uniform-package pages (htz_uniform / dt_uniform),
-       which use the size forms below. Styles are at the end of css/custom.css. -->
-  <div class="hc-product-grid" ng-if="currentCategory && currentCategory.InteropID !== 'htz_uniform' && currentCategory.InteropID !== 'dt_uniform'">
-    <loadingindicator ng-show="productLoadingIndicator" title="{{'Please wait while we fetch all products' | r | xlat}}"></loadingindicator>
-    <p class="hc-product-empty" ng-show="categoryProducts && categoryProducts.length === 0 && !currentCategory.SubCategories.length">There are no items in this category yet.</p>
-    <ul class="row hc-products">
-      <li class="col-lg-4 col-md-6 col-sm-6 col-xs-12" ng-repeat="p in categoryProducts track by $index">
-        <a class="hc-product-card" ng-href="{{(p.Type == 'Kit' ? 'kit/' : 'product/') + p.InteropID}}">
-          <div class="hc-product-image">
-            <img ng-if="p.LargeImageUrl || p.SmallImageUrl" ng-src="{{p.LargeImageUrl || p.SmallImageUrl}}" alt="{{p.Name}}">
-            <i ng-if="!(p.LargeImageUrl || p.SmallImageUrl)" class="fa fa-camera"></i>
-          </div>
-          <div class="hc-product-info">
-            <h3 class="hc-product-name">{{p.Name}}</h3>
-            <span class="hc-product-link">View Product <i class="fa fa-arrow-right"></i></span>
-          </div>
-        </a>
-      </li>
-    </ul>
-  </div>
-
   <!--  Hertz uniform FT-PT -->
   <div class="" ng-show="currentCategory.InteropID === 'htz_uniform'">
 	<div class="column">
@@ -1623,7 +1602,8 @@
 	  </div>
 	  <ul style="display: flex;justify-content: center;flex-wrap: wrap;">
 		<loadingindicator ng-show="searchLoading" title="{{'Please wait while we fetch all products' | r | xlat}}" />
-		<li class="inline gallery" id="451_lst_prod" ng-repeat="product in products | paginate:(settings.currentPage-1) * settings.pageSize | limitTo:settings.pageSize | orderBy:sorter:direction" style="margin: 25px;">
+		<li ng-show="!searchLoading && categoryProducts && categoryProducts.length === 0 && !currentCategory.SubCategories.length" style="list-style: none; padding: 20px 0; font-size: 16px;">There are no items in this category yet.</li>
+		<li class="inline gallery" id="451_lst_prod" ng-repeat="product in categoryProducts | paginate:(settings.currentPage-1) * settings.pageSize | limitTo:settings.pageSize | orderBy:sorter:direction" style="margin: 25px;">
 		  <div class="well" style="border:none;border-radius: 30px;">
 			<shortproductviewgallery p="product" user="user" />
 		  </div>
