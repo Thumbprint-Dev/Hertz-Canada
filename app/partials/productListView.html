@@ -1602,8 +1602,7 @@
 	  </div>
 	  <ul style="display: flex;justify-content: center;flex-wrap: wrap;">
 		<loadingindicator ng-show="searchLoading" title="{{'Please wait while we fetch all products' | r | xlat}}" />
-		<li ng-show="!searchLoading && categoryProducts && categoryProducts.length === 0 && !currentCategory.SubCategories.length" style="list-style: none; padding: 20px 0; font-size: 16px;">There are no items in this category yet.</li>
-		<li class="inline gallery" id="451_lst_prod" ng-repeat="product in categoryProducts | paginate:(settings.currentPage-1) * settings.pageSize | limitTo:settings.pageSize | orderBy:sorter:direction" style="margin: 25px;">
+		<li class="inline gallery" id="451_lst_prod" ng-repeat="product in products | paginate:(settings.currentPage-1) * settings.pageSize | limitTo:settings.pageSize | orderBy:sorter:direction" style="margin: 25px;">
 		  <div class="well" style="border:none;border-radius: 30px;">
 			<shortproductviewgallery p="product" user="user" />
 		  </div>

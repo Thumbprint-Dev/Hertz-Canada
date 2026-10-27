@@ -315,9 +315,6 @@ four51.app.controller('CategoryCtrl', ['$routeParams', '$sce', '$scope', '$q', '
         });
         $scope.products = merged;
         $scope.groupedProducts = createProductGroups($scope.products);
-        // the category gallery (productListView.html) shows only the open category's own items (results[0]);
-        // kept separate from $scope.products because the all-products search at the end of _search() overwrites that
-        $scope.categoryProducts = results[0] || [];
         console.log('^^^^', $scope.groupedProducts)
         // FIX: "count" is out of scope here
         $scope.productCount = $scope.products.length;

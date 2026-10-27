@@ -948,3 +948,40 @@ contentmodal2 a:hover{
 .galleryImages .active .product-image-large {
     border-radius: 8px;
 }
+/* ---- Category gallery: same-size cards (partials/controls/shortProductViewGallery.html) ---- */
+/* every card in a row stretches to the tallest one */
+.panel-product-list ul li.gallery {
+    display: flex;
+}
+.panel-product-list ul li.gallery > .well,
+.panel-product-list ul li.gallery shortproductviewgallery,
+.panel-product-list ul li.gallery .product {
+    display: flex;
+    flex: 1;
+}
+.panel-product-list ul li.gallery .product-list-area {
+    display: flex;
+    flex-direction: column;
+}
+/* the name grows, so prices and CLICK HERE buttons line up across the row */
+.panel-product-list ul li.gallery .productFig {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+}
+.panel-product-list ul li.gallery .productFig .productListImage {
+    flex: 1;
+}
+/* same-height image frame whatever the photo's shape */
+.panel-product-list ul li.gallery .img-hover-wrapper,
+.panel-product-list ul li.gallery .productFig > .empty {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 300px;
+}
+.panel-product-list ul li.gallery .img-hover-wrapper img {
+    width: auto;
+    max-width: 100%;
+    max-height: 100%;
+}
