@@ -6,9 +6,11 @@ It started as a copy of the Hertz (US) theme, [`thumb-dev/Hertz`](https://github
 
 ## Layout
 
-The theme is flat at the repo root: `index.html`, `js/`, `css/`, `lib/`, `partials/`, `fonts/`, `images/`. There is no build step. AngularJS 1.2 static files are served exactly as they are in git.
+The whole site lives in `HertzCanada/`: `index.html`, `js/`, `css/`, `lib/`, `partials/`, `fonts/`, `images/`. There is no build step. AngularJS 1.2 static files are served exactly as they are in git.
 
-The US repo keeps the theme under `app/`, next to an old test harness. That layout is left out here on purpose. When Hertz-Reformed was moved under `app/` on this Four51 account, the deploy broke: `index.html` was served at the site root, every `js/…` and `css/…` request 404'd, and Angular never started. Every asset path in `index.html` is relative, so the assets have to sit right beside it. **Don't add an `app/` folder** without re-testing a deploy.
+Four51 requires a deployment sub folder, so the site lives in a folder named after the app, `HertzCanada/`, and that's the sub folder. Four51 then deploys the *contents* of `HertzCanada/` to the site root. Every asset path in `index.html` is relative (`js/…`, `css/…`), so the assets have to stay right beside `index.html` inside `HertzCanada/`.
+
+When Hertz-Reformed tried an `app/` folder with the sub folder left blank, Four51 published the files one level too deep and every asset 404'd. The sub folder setting is what prevents that.
 
 `index.html` keeps Four51's `<!--baseTagToken-->` and `<!--headscriptToken-->` placeholders. Four51 replaces them when it serves the page (base path, sign-in state, analytics). Don't paste in a copy of the live page source in their place.
 
@@ -19,8 +21,8 @@ In Four51 admin, go to **Git File Deployment** and choose **New Git Repository**
 | Field | Value |
 |---|---|
 | Repository URL | `https://github.com/Thumbprint-Dev/Hertz-Canada` |
-| App code folder | the repo root. Try `/`, then `.` |
-| Deployment sub folder in repository | *(leave blank)* |
+| App code folder | `HertzCanada` (the name the app shows under in Four51's dropdown) |
+| Deployment sub folder in repository | `HertzCanada` |
 
 Then **Pull Repository**, **Deploy Commit** on the newest commit, and assign the app to the Hertz Canada site.
 
@@ -36,4 +38,4 @@ git fetch hertz-us
 git merge hertz-us/main
 ```
 
-Git follows the `app/` → root move for files that weren't otherwise touched. Review the merge before pushing, because it deploys.
+The US repo keeps its site in `app/`, and this one keeps it in `HertzCanada/`. Git usually follows the rename when merging, but check that US changes landed in `HertzCanada/`. Review the merge before pushing, because it deploys.
