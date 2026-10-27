@@ -1,12 +1,13 @@
 four51.app.factory('XLATService', ['$interpolate', function($interpolate) {
 
+    // Hertz Canada: prices and dates always use the Canadian format (en-CA), whatever culture a
+    // user has in Four51. Translation (xlat) still follows the user's language.
     var currentLanguage = "en-US";
-    var currentCulture = "en-US";
+    var currentCulture = "en-CA";
     var tables = $.extend(true, {}, XLATTables);
 
     var _getCurrentLanguage = function(userLanguage, userCulture) {
         currentLanguage =  userLanguage ? userLanguage : currentLanguage;
-        currentCulture =  userCulture ? userCulture : currentCulture;
         return [currentCulture, tables["Currency"][currentCulture], tables["Date"][currentCulture]];
     };
 
@@ -81,6 +82,9 @@ four51.app.filter('culturecurrency', ['XLATService', function(XLATService) {
 
             var result = "";
             switch(culture) {
+                case "en-CA":
+                    result = currencyPrefix + value.formatCurrency(2, 3, ',', '.');
+                    break;
                 case "en-US":
                     result = currencyPrefix + value.formatCurrency(2, 3, ',', '.');
                     break;

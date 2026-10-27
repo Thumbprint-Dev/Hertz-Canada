@@ -58,7 +58,7 @@ function headernavigation() {
                 /*SPENDING ACCOUNTS NAV*/
                 '<ul>',
                 '<li ng-if="userSpendingAccounts" class="spendingaccounts main-nav-spendingaccount">',
-                    '<span class="hidden-xs hidden-sm">Spending Account: {{userSpendingAccounts[0].Balance | currency}}</span>',
+                    '<span class="hidden-xs hidden-sm">Spending Account: {{userSpendingAccounts[0].Balance | culturecurrency}}</span>',
                 '</li>',
                 /*END SPENDING ACCOUNTS NAV*/
                 '</ul>',

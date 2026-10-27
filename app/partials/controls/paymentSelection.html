@@ -73,7 +73,7 @@
                 <span>{{'The account, ' + (currentBudgetAccount.Label) + ', is not sufficient for the order total.' | xlat}}</span>
                 <strong>{{'Please select an additional payment type to cover the remaining' | r | xlat}}</strong>
             <span ng-show="!user.Permissions.contains('HidePricing')">
-                <strong>{{remainingOrderTotal | currency}}</strong>
+                <strong>{{remainingOrderTotal | culturecurrency}}</strong>
             </span>
             <span ng-show="user.Permissions.contains('HidePricing')">
                 {{'balance' | xlat}}
@@ -84,7 +84,7 @@
                 <span>{{('The account, ' | xlat) + (currentBudgetAccount.Label) + (', is not sufficient for the order total.' | xlat)}}</span>
                 <span>{{'This additional payment will cover the remaining' | r | xlat}}</span>
             <span ng-show="!user.Permissions.contains('HidePricing')">
-                <strong>{{remainingOrderTotal | currency}}</strong>
+                <strong>{{remainingOrderTotal | culturecurrency}}</strong>
             </span>
             <span ng-show="user.Permissions.contains('HidePricing')">
                 {{'balance or remove this spending account from your payment options.' | r | xlat}}

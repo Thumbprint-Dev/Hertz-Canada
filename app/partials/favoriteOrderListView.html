@@ -61,7 +61,7 @@
                         <td><input type='checkbox' ng-model="order.Selected" /></td>
                         <td>{{order.FavoriteName}}</td>
                         <td><a ng-href="order/{{order.ID}}">{{order.ExternalID}}</a></td>
-                        <td>{{order.DateCompleted | date:'medium'}}</td>
+                        <td>{{order.DateCompleted | date:user.Culture.DateFormat.long}}</td>
                         <td> {{order.Type}}</td>
                         <td class="text-center" ng-if="!(user.Permissions.contains('HidePricing'))">
                             <button ng-disabled="currentOrder" type="button" class="btn btn-default btn-sm" ng-click="repeat(order)">

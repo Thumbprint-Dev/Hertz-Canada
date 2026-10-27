@@ -1,6 +1,7 @@
 var XLATTables = {
     'Currency': {
         'en-US': '$',
+        'en-CA': '$',
         'en-GB': '£',
         'nl-NL': '€',
         'en-IE': '€',
@@ -13,6 +14,10 @@ var XLATTables = {
         'en-US': {
             'short':'MM/dd/yy',
             'long': 'MM/dd/yy hh:mm a'
+        },
+        'en-CA': {
+            'short':'yyyy-MM-dd',
+            'long': 'yyyy-MM-dd h:mm a'
         },
         'en-GB': {
             'short':'dd/MM/yy',

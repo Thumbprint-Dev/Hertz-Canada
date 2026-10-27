@@ -35,7 +35,7 @@
     </p>
     <p ng-show="order.PaymentMethod != 'Undetermined'">
         <span class="text-info">{{('Payment' | r) + ' ' + ('Method' | r) | xlat}}</span>
-        <span class="pull-right">{{order.PaymentMethodText | r | xlat}} <strong ng-show="order.CreditCard.Type">{{':' + order.CreditCard.DisplayName}}</strong> {{order.AmountOnAccount && order.PaymentMethod != 'BudgetAccount' ? "(" + (order.Total - order.AmountOnAccount | currency) + ")" : ""}}</span>
+        <span class="pull-right">{{order.PaymentMethodText | r | xlat}} <strong ng-show="order.CreditCard.Type">{{':' + order.CreditCard.DisplayName}}</strong> {{order.AmountOnAccount && order.PaymentMethod != 'BudgetAccount' ? "(" + (order.Total - order.AmountOnAccount | culturecurrency) + ")" : ""}}</span>
     </p>
     <p ng-show="order.AmountOnAccount && order.PaymentMethod != 'BudgetAccount'">
         <span class="text-info"></span>
