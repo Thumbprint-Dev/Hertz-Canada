@@ -53,6 +53,7 @@ four51.app.config(['$routeProvider', '$locationProvider', function($routeProvide
         when('/faq/', { templateUrl: 'partials/Messages/faq.html' }).
         when('/returns/', { templateUrl: 'partials/Messages/returns.html' }).
         when('/allofaq/', { templateUrl: 'partials/Messages/allofaq.html' }).
+        when('/uniforminsights/', { templateUrl: 'partials/uniforminsights.html' }).
         when('/insights/', {
             templateUrl: 'partials/insights.html',
             resolve: {
@@ -73,5 +74,6 @@ four51.app.config(['$routeProvider', '$locationProvider', function($routeProvide
                 }]
             }
         }).
+        
         otherwise({redirectTo: '/catalog'});
 }]);

@@ -26,7 +26,7 @@ four51.app.controller('ProductCtrl', ['$scope', '$routeParams', '$route', '$loca
     $scope.cartapparel = false;
     $scope.ProductHasCustomShipper = false;
 
-    if ($scope.currentOrder !== null) {
+    if ($scope.currentOrder && $scope.currentOrder.LineItems) {
       angular.forEach($scope.currentOrder.LineItems, function(item) {
         if (item.Product.StaticSpecGroups && item.Product.StaticSpecGroups.isapparel !== undefined) {
           if (item.Product.StaticSpecGroups.isapparel.Specs['Item'].Value === 'true') {
@@ -55,7 +55,7 @@ four51.app.controller('ProductCtrl', ['$scope', '$routeParams', '$route', '$loca
     $scope.cartapparelPrice = false;
     $scope.ProductHasCustomShipperPrice = false;
 
-    if ($scope.currentOrder !== null) {
+    if ($scope.currentOrder && $scope.currentOrder.LineItems) {
       angular.forEach($scope.currentOrder.LineItems, function(item) {
         if (item.Product.StaticSpecGroups && item.Product.StaticSpecGroups.HidePrice !== undefined) {
           if (item.Product.StaticSpecGroups.HidePrice.Specs['Item'].Value === 'true') {
@@ -99,7 +99,7 @@ $scope.productappSpring = false;
 $scope.cartapparelSpring = false;
 $scope.ProductHasCustomShipperSpring = false;
 
-if ($scope.currentOrder !== null) {
+if ($scope.currentOrder && $scope.currentOrder.LineItems) {
   angular.forEach($scope.currentOrder.LineItems, function(item) {
 	if (item.Product.StaticSpecGroups && item.Product.StaticSpecGroups.springC2025 !== undefined) {
 	  if (item.Product.StaticSpecGroups.springC2025.Specs['Item'].Value === 'true') {

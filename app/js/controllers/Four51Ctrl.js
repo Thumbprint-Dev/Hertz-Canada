@@ -145,20 +145,22 @@ function ($scope, $route, $location, Punchout, $451, User, Order, Security, Orde
     });
 });
     
-                //Punchout
-                var punchoutConfigured = store.get('punchoutconfig');
-                if(!punchoutConfigured){
-                	angular.forEach($scope.user.Permissions,function(permission){
-	                    if(permission == "PunchoutUser"){
-	                        $scope.PunchoutUser = true;
-	 
-	                        if($scope.PunchoutSession && $scope.PunchoutSession.PunchOutOperation == 'Edit') $location.path('cart');
-	                        else if($scope.PunchoutSession && $scope.PunchoutSession.PunchoutLandingCategory) $location.path('catalog/' + $scope.PunchoutSession.PunchoutLandingCategory);
-	                        else if($scope.PunchoutSession && $scope.PunchoutSession.PunchoutLandingProduct) $location.path('product/' + $scope.PunchoutSession.PunchoutLandingProduct);
-	                        store.set('punchoutconfig','true');
-	                    }
-	                });
+            //Punchout
+            // PunchoutUser has to be resolved on every load — it drives the cart's
+            // Submit button and the return-post URL. Only the landing redirect is
+            // once per session, which is what punchoutconfig tracks.
+            var punchoutConfigured = store.get('punchoutconfig');
+            angular.forEach($scope.user.Permissions,function(permission){
+                if(permission == "PunchoutUser"){
+                    $scope.PunchoutUser = true;
                 }
+            });
+            if($scope.PunchoutUser && !punchoutConfigured){
+                if($scope.PunchoutSession && $scope.PunchoutSession.PunchOutOperation == 'Edit') $location.path('cart');
+                else if($scope.PunchoutSession && $scope.PunchoutSession.PunchoutLandingCategory) $location.path('catalog/' + $scope.PunchoutSession.PunchoutLandingCategory);
+                else if($scope.PunchoutSession && $scope.PunchoutSession.PunchoutLandingProduct) $location.path('product/' + $scope.PunchoutSession.PunchoutLandingProduct);
+                store.set('punchoutconfig','true');
+            }
 
           //SPENDING ACCOUNTS NAV
           SpendingAccount.query(function(data) {
