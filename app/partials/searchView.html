@@ -49,7 +49,7 @@
             <form role="search">
                 <div class="view-form-icon">
                     <div class="input-group">
-                        <input type="text" ng-model="searchTerm"  class="form-control" placeholder="{{('Search' | r) + ' ' + ('Products' | r) | xlat}}" autocomplete="off" />
+                        <input type="text" ng-model="searchTerm" product-search-suggest="search()"  class="form-control" placeholder="{{('Search' | r) + ' ' + ('Products' | r) | xlat}}" autocomplete="off" />
                         <i class="fa fa-search"></i>
                         <div class="input-group-btn">
                             <button type="submit" ng-click="search()" class="btn btn-default">{{'Search' | r | xlat}}</button>
